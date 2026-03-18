@@ -1,12 +1,12 @@
 {
   "name": "react-all-the-things",
-  "module": "index.ts",
-  "type": "module",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+  "type": "module",
+  "workspaces": [
+    "packages/react-native"
+  ],
+  "scripts": {
+    "react-native:start": "bun run --filter react-native android",
+    "react-native:compile": "bun run --filter react-native compile"
   }
 }
