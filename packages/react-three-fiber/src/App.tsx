@@ -1,6 +1,7 @@
-import { useRef, useMemo } from 'react'
+import { useRef, useMemo, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
+import { usePokemon } from '@shared/hooks/use-pokemon-hook'
 
 const WHITE = new THREE.Color('white')
 const PRESSED_YELLOW = new THREE.Color('#ffff99')
@@ -19,7 +20,7 @@ const PARTICLE_TEXTURE = (() => {
   return new THREE.CanvasTexture(canvas)
 })()
 
-function Pokeball() {
+function Pokeball({ onButtonClick }: { onButtonClick: () => void }) {
   const groupRef = useRef<THREE.Group>(null)
   const topPivotRef = useRef<THREE.Group>(null)
   const posY = useRef(8)
@@ -171,6 +172,7 @@ function Pokeball() {
       buttonPressTime.current = 0
       openTime.current = 0
       spawnParticles()
+      onButtonClick()
     }
   }
 
@@ -229,13 +231,32 @@ function Pokeball() {
 }
 
 function App() {
+  const [pokemonId, setPokemonId] = useState<number | undefined>(undefined)
+  const pokemon = usePokemon(pokemonId)
+
+  const handleButtonClick = () => {
+    setPokemonId(Math.floor(Math.random() * 151) + 1)
+  }
+
   return (
-    <Canvas style={{ width: '100vw', height: '100vh' }} camera={{ position: [0, 0, 3] }}>
-      <color attach="background" args={['#111111']} />
-      <ambientLight intensity={0.6} />
-      <pointLight position={[2, 4, 2]} intensity={30} color="white" />
-      <Pokeball />
-    </Canvas>
+    <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
+      <Canvas style={{ width: '100%', height: '100%' }} camera={{ position: [0, 0, 5] }}>
+        <color attach="background" args={['#111111']} />
+        <ambientLight intensity={0.6} />
+        <pointLight position={[2, 4, 2]} intensity={30} color="white" />
+        <Pokeball onButtonClick={handleButtonClick} />
+      </Canvas>
+      {pokemon && (
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+        }}>
+          <img src={pokemon.imageUrl} alt={pokemon.name} style={{ width: 250, height: 250 }} />
+        </div>
+      )}
+    </div>
   )
 }
 
