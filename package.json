@@ -4,6 +4,8 @@
   "type": "module",
   "workspaces": [
     "packages/react-native",
+    "packages/react-three-fiber",
+    "packages/remotion",
     "packages/shared"
   ],
   "scripts": {
