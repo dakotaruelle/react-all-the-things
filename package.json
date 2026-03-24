@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "packages/react-native"
+    "packages/react-native",
+    "packages/shared"
   ],
   "scripts": {
     "react-native:start": "bun run --filter react-native android",

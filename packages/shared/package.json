@@ -1,0 +1,11 @@
+{
+  "name": "@shared/hooks",
+  "version": "1.0.0",
+  "private": true,
+  "peerDependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.0"
+  }
+}

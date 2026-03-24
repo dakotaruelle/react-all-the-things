@@ -1,4 +1,4 @@
-import { usePokemon } from '@/hooks/use-pokemon-hook';
+import { usePokemon } from '@shared/hooks/use-pokemon-hook';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
