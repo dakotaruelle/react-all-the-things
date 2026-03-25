@@ -3,7 +3,7 @@ import { usePokemon } from "../../../shared/hooks/use-pokemon-hook";
 
 const POKEMON_IDS = [1, 4, 7, 25, 39, 52, 54, 66, 74, 92];
 
-export const MyComposition = () => {
+export const PokemonVideo = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 

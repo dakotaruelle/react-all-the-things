@@ -2,7 +2,7 @@ import "./index.css";
 import { Composition } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
-import { MyComposition } from "./MyComposition";
+import { PokemonVideo } from "./PokemonVideo";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -10,8 +10,8 @@ export const RemotionRoot = () => {
   return (
     <>
       <Composition
-        id="MyComposition"
-        component={MyComposition}
+        id="Pokemon"
+        component={PokemonVideo}
         durationInFrames={150}
         fps={30}
         width={1920}
