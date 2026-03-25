@@ -6,6 +6,7 @@
     "packages/react-native",
     "packages/react-three-fiber",
     "packages/remotion",
+    "packages/ink-cli",
     "packages/shared"
   ],
   "scripts": {
