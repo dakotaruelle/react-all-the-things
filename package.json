@@ -12,5 +12,8 @@
   "scripts": {
     "react-native:start": "bun run --filter react-native android",
     "react-native:compile": "bun run --filter react-native compile"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^4.3.2"
   }
 }
