@@ -19,8 +19,18 @@ export function usePokemon(pokemonId: number | undefined) {
       );
       const result = await response.json();
 
+      if (!(result as any)?.name) {
+        throw new Error('Pokemon result does not have a name')
+      }
+
+      if (!(result as any)?.sprites['front_default']) {
+        throw new Error('Pokemon result does not have a sprite')
+      }
+
       setPokemon({
+        // @ts-ignore
         name: result.name,
+        // @ts-ignore
         imageUrl: result.sprites['front_default'],
       });
     }
