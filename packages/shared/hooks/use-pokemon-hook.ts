@@ -19,9 +19,6 @@ export function usePokemon(pokemonId: number | undefined) {
       );
       const result = await response.json();
 
-      console.log('name: ', result.name);
-      console.log('sprite url: ', result.sprites['front_default']);
-
       setPokemon({
         name: result.name,
         imageUrl: result.sprites['front_default'],
