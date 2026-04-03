@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Post from './post.mdx'
+import PokemonMarkdown from './pokemon.mdx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <Post />
+      <PokemonMarkdown />
     </>
   )
 }
