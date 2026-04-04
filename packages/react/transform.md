@@ -14,5 +14,16 @@ return React.createElement(
   React.createElement("h1", null, "Hello"),
   React.createElement("p", null, "World")
 );
+```
 
+```
+import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
+
+return _jsxs("div", {
+  className: "box",
+  children: [
+    _jsx("h1", { children: "Hello" }),
+    _jsx("p", { children: "World" })
+  ]
+});
 ```
