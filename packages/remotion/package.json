@@ -21,7 +21,7 @@
     "eslint": "9.19.0"
   },
   "scripts": {
-    "start": "remotion studio",
+    "start": "remotion studio --port 5173",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src"
