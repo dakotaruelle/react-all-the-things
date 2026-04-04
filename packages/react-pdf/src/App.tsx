@@ -1,6 +1,7 @@
 import { Page, Text, View, Image, Document, StyleSheet } from '@react-pdf/renderer';
 import { usePokemon } from '../../shared/hooks/use-pokemon-hook';
 import { useState, useEffect } from 'react';
+// @ts-ignore
 import pokeball from './pokeball.png';
 
 export interface Pokemon {
@@ -92,12 +93,12 @@ export function PokemonDocument({ pokemon }: { pokemon: Pokemon[] }) {
           <Image src={pokeball} style={styles.sprite} />
         </View>
         <View style={{ ...styles.section, alignItems: 'center' }}>
-            {pokemon.map((p, index) =>
-              <View key={index} style={{ alignItems: 'center' }}>
-                <Image src={p.imageUrl} style={styles.sprite} />
-                <Text>{p.name}</Text>
-              </View>)
-            }
+          {pokemon.map((p, index) =>
+            <View key={index} style={{ alignItems: 'center' }}>
+              <Image src={p.imageUrl} style={styles.sprite} />
+              <Text>{p.name}</Text>
+            </View>)
+          }
         </View>
       </Page>
     </Document>

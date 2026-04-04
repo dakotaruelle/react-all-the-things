@@ -3,12 +3,20 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "packages/react-native",
-    "packages/react-three-fiber",
-    "packages/remotion",
     "packages/ink-cli",
-    "packages/shared",
-    "packages/react-flow"
+    "packages/mdx",
+    "packages/nextjs",
+    "packages/pixi-react",
+    "packages/react",
+    "packages/react-fiber",
+    "packages/react-flow",
+    "packages/react-map-gl",
+    "packages/react-native",
+    "packages/react-nil",
+    "packages/react-pdf",
+    "packages/reagraph",
+    "packages/remotion",
+    "packages/shared"
   ],
   "scripts": {
     "react-native:start": "bun run --filter react-native android",
