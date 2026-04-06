@@ -3,7 +3,7 @@ import React from 'react';
 import {render} from 'ink';
 import meow from 'meow';
 import App from './app.js';
-import { TerminalInfoProvider } from 'ink-picture';
+import {TerminalInfoProvider} from 'ink-picture';
 
 const cli = meow(
 	`
@@ -27,4 +27,8 @@ const cli = meow(
 	},
 );
 
-render(<TerminalInfoProvider><App name={cli.flags.name} /></TerminalInfoProvider>);
+render(
+	<TerminalInfoProvider>
+		<App />
+	</TerminalInfoProvider>,
+);
