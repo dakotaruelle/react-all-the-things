@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import './App.css'
+// @ts-ignore
 import PokemonMarkdown from './pokemon.mdx'
 
 function App() {
