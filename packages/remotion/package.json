@@ -24,6 +24,7 @@
     "start": "remotion studio --port 5173",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
+    "render": "remotion render src/index.js Pokemon out/pokemon.mp4",
     "lint": "eslint src"
   },
   "sideEffects": [
