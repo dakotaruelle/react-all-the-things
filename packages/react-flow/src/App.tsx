@@ -19,12 +19,12 @@ import { usePokemon } from '@shared/hooks/use-pokemon-hook';
 function PokemonNode({ data }: NodeProps) {
   return (
     <div style={{ textAlign: 'center', padding: 8 }}>
-      <Handle type="target" position={Position.Top} />
-      {data.imageUrl && (
+      {!(data as any).hideTop && <Handle type="target" position={Position.Top} />}
+      {(data as any).imageUrl && (
         <img src={data.imageUrl as string} width={64} height={64} alt={data.label as string} />
       )}
       <div>{String(data.label)}</div>
-      <Handle type="source" position={Position.Bottom} />
+      {!(data as any).hideBottom && <Handle type="source" position={Position.Bottom} />}
     </div>
   );
 }
@@ -52,15 +52,15 @@ function App() {
   const blastoise = usePokemon(9);
 
   const pokemon = useMemo(() => [
-    { id: 'n-1', data: bulbasaur, x: 0, y: 0 },
+    { id: 'n-1', data: bulbasaur, x: 0, y: 0, hideTop: true },
     { id: 'n-2', data: ivysaur, x: 0, y: 150 },
-    { id: 'n-3', data: venusaur, x: 0, y: 300 },
-    { id: 'c-1', data: charmander, x: 300, y: 0 },
+    { id: 'n-3', data: venusaur, x: 0, y: 300, hideBottom: true },
+    { id: 'c-1', data: charmander, x: 300, y: 0, hideTop: true },
     { id: 'c-2', data: charmeleon, x: 300, y: 150 },
-    { id: 'c-3', data: charizard, x: 300, y: 300 },
-    { id: 's-1', data: squirtle, x: 600, y: 0 },
+    { id: 'c-3', data: charizard, x: 300, y: 300, hideBottom: true },
+    { id: 's-1', data: squirtle, x: 600, y: 0, hideTop: true },
     { id: 's-2', data: wartortle, x: 600, y: 150 },
-    { id: 's-3', data: blastoise, x: 600, y: 300 },
+    { id: 's-3', data: blastoise, x: 600, y: 300, hideBottom: true },
   ], [bulbasaur, ivysaur, venusaur, charmander, charmeleon, charizard, squirtle, wartortle, blastoise]);
 
   const [nodes, setNodes] = useState<Node[]>(
@@ -68,7 +68,7 @@ function App() {
       id: p.id,
       type: 'pokemon',
       position: { x: p.x, y: p.y },
-      data: { label: '...', imageUrl: '' },
+      data: { label: '...', imageUrl: '', hideTop: p.hideTop ?? false, hideBottom: p.hideBottom ?? false },
     })),
   );
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
@@ -82,6 +82,8 @@ function App() {
           data: {
             label: p?.data?.name ?? '...',
             imageUrl: p?.data?.imageUrl ?? '',
+            hideTop: p?.hideTop ?? false,
+            hideBottom: p?.hideBottom ?? false,
           },
         };
       }),
