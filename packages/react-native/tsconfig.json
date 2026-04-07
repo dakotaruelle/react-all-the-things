@@ -34,4 +34,5 @@
     "expo-env.d.ts",
     "../shared/**/*.ts"
   ],
+  "extends": "expo/tsconfig.base"
 }
