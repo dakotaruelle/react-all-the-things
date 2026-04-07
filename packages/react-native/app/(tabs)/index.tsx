@@ -13,7 +13,7 @@ export default function HomeScreen() {
   const selectedPokemon = usePokemon(selectedPokemonId);
 
   function onClick() {
-    setSelectedPokemonId(155);
+    setSelectedPokemonId(Math.floor(Math.random() * 1025) + 1);
   }
 
   return (
